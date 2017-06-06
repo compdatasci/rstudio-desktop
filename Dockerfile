@@ -40,6 +40,7 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
 # Install R
 COPY install_irkernel.R /tmp/install_irkernel.R
 
+ARG XSLT1_VERSION=1.1.28-2.1
 ARG R_VERSION=1.0.143
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 && \
@@ -53,6 +54,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD5
             libatlas-dev \
             liblapack-dev \
             libxml2-dev \
+            libxslt1.1 \
             libjpeg62 \
             libgstreamer0.10-0 \
             libgstreamer-plugins-base0.10-0 \
