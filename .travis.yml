@@ -4,9 +4,7 @@ sudo: required
 language: python
 services: docker
 
-env:
-  - XVFB=1
-  - XVFB=0
+env: XVFB=1
 
 before_install:
   # Install latest version of docker-ce
