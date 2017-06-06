@@ -47,6 +47,15 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD5
     apt-get update && \
     apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
     apt-get install -y --no-install-recommends \
+            gfortran \
+            libopenblas-base \
+            libatlas3-base \
+            libatlas-dev \
+            liblapack-dev \
+            libxml2-dev \
+            libjpeg62 \
+            libgstreamer0.10-0 \
+            libgstreamer-plugins-base0.10-0 \
             r-base \
             libssl-dev \
             libcairo2-dev \
