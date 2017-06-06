@@ -40,17 +40,20 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
 # Install R
 COPY install_irkernel.R /tmp/install_irkernel.R
 
+R_VERSION=1.0.143
+
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 && \
     add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/' && \
     apt-get update && \
     apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
     apt-get install -y --no-install-recommends \
             r-base \
-            rstudio \
             libssl-dev \
             libcairo2-dev \
             libcurl4-openssl-dev && \
     R --no-save < /tmp/install_irkernel.R && \
+    curl -O https://download1.rstudio.org/rstudio-$R_VERSION-amd64.deb && \
+      dpkg -i rstudio-$R_VERSION-amd64.deb && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     \
     touch $DOCKER_HOME/.log/jupyter.log && \
