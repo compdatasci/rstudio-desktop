@@ -28,6 +28,5 @@ script:
       docker push compdatasci/rstudio-desktop &&
       touch success)'
   # Test script without launching webbrowser and push new image if successful
-  - './rstudio_desktop.py -d -n && sleep 3 && docker stop $(docker ps -q)'
-  - './rstudio_jupyter.py -d -n && sleep 3 && docker stop $(docker ps -q)'
+  - './rstudio_desktop.py -d -n && docker stop $(docker ps -q)'
   - docker images
