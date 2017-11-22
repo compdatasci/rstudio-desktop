@@ -52,13 +52,13 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD5
             gfortran \
             libopenblas-base \
             libatlas3-base \
-            libatlas-dev \
+            libatlas-base-dev \
             liblapack-dev \
             libxml2-dev \
             libxslt1.1 \
             libjpeg62 \
-            libgstreamer0.10-0 \
-            libgstreamer-plugins-base0.10-0 \
+            libgstreamer1.0-0 \
+            libgstreamer-plugins-base1.0-0 \
             r-base \
             libssl-dev \
             libcairo2-dev \
