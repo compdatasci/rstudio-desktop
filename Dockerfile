@@ -41,7 +41,7 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
 COPY install_irkernel.R /tmp/install_irkernel.R
 
 ARG XSLT1_VERSION=1.1.28-2.1
-ARG R_VERSION=1.0.143
+ARG RSTUDIO_VERSION=xenial-1.1.383
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 && \
     add-apt-repository "deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu `lsb_release -sc`/" && \
@@ -64,8 +64,8 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD5
             libcairo2-dev \
             libcurl4-openssl-dev && \
     R --no-save < /tmp/install_irkernel.R && \
-    curl -O https://download1.rstudio.org/rstudio-$R_VERSION-amd64.deb && \
-      dpkg -i rstudio-$R_VERSION-amd64.deb && \
+    curl -O https://download1.rstudio.org/rstudio-$RSTUDIO_VERSION-amd64.deb && \
+      dpkg -i rstudio-$RSTUDIO_VERSION-amd64.deb && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     \
     touch $DOCKER_HOME/.log/jupyter.log && \
