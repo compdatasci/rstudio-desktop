@@ -37,7 +37,8 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
         calico-spell-check && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install R
+# Install R and Rstudio
+# Links of latest version of Rstudio can be found at https://www.rstudio.com/products/rstudio/download/#download
 COPY install_irkernel.R /tmp/install_irkernel.R
 
 ARG XSLT1_VERSION=1.1.28-2.1
