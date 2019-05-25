@@ -12,7 +12,8 @@ WORKDIR /tmp
 # Install Jupyter Notebook for Python
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-        python3-distutils && \
+        python3-distutils \
+        dirmngr && \
     curl -O https://bootstrap.pypa.io/get-pip.py && \
     python3 get-pip.py && \
     pip3 install -U \
