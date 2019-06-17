@@ -11,7 +11,7 @@ WORKDIR /tmp
 
 # Install Jupyter Notebook for Python
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         python3-distutils \
         dirmngr && \
     curl -O https://bootstrap.pypa.io/get-pip.py && \
@@ -52,7 +52,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD5
     add-apt-repository "deb [arch=amd64,i386] https://cloud.r-project.org/bin/linux/ubuntu `lsb_release -sc`-cran35/" && \
     apt-get update && \
     apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
-    apt-get install -y --no-install-recommends \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
             git \
             gfortran \
             libopenblas-base \
